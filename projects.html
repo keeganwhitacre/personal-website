@@ -1,39 +1,50 @@
----
-layout: null
----
 <!DOCTYPE html>
 <html>
 <head>
     <title>Projects | Keegan Whitacre</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 40px; }
-        .project-row { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; }
+        body { font-family: -apple-system, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .project-row { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; }
+        
+        /* This creates the zigzag! */
         .project-row:nth-child(even) { flex-direction: row-reverse; }
+        
         .project-text { flex: 1.2; }
         .project-image { flex: 0.8; }
-        .project-image img { width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .year { color: #888; font-weight: bold; }
-        h1 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h3 { margin: 10px 0; font-size: 1.6rem; }
-        .back-link { display: block; margin-bottom: 20px; text-decoration: none; color: #5b84b1; }
+        .project-image img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .year { color: #888; font-weight: bold; font-size: 0.9rem; }
+        h3 { margin: 10px 0; font-size: 1.8rem; color: #222; }
+        .conf { font-style: italic; color: #666; display: block; margin-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 30px; text-decoration: none; color: #5b84b1; font-weight: bold; }
     </style>
 </head>
 <body>
     <a href="index.html" class="back-link">← Home</a>
     <h1>Projects</h1>
 
-    {% for p in site.projects %}
     <div class="project-row">
         <div class="project-text">
-            <span class="year">{{ p.date }}</span>
-            <h3>{{ p.title }}</h3>
-            <p><em>{{ p.conference }}</em></p>
-            <p>{{ p.description }}</p>
+            <span class="year">2026</span>
+            <h3>Emotion Malleability Poster</h3>
+            <span class="conf">Society for Affective Science</span>
+            <p>I led the design and data visualization for this study exploring how beliefs about emotion impact regulation strategies.</p>
         </div>
         <div class="project-image">
-            <img src="{{ p.image }}" alt="{{ p.title }}">
+            <img src="images/headshot.JPG" alt="Project 1">
         </div>
     </div>
-    {% endfor %}
+
+    <div class="project-row">
+        <div class="project-text">
+            <span class="year">2025</span>
+            <h3>Second Project Title</h3>
+            <span class="conf">Another Conference Name</span>
+            <p>A brief description of your second piece of research goes here.</p>
+        </div>
+        <div class="project-image">
+            <img src="images/headshot.JPG" alt="Project 2">
+        </div>
+    </div>
+
 </body>
 </html>
