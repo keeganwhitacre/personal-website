@@ -1,5 +1,7 @@
-title: Your Name
-remote_theme: pages-themes/minimal@v0.2.0 # Or leave blank
+theme: jekyll-theme-minimal
+title: Keegan Whitacre
+description: Researcher
+
 collections:
   projects:
     output: true
