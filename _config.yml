@@ -1,7 +1,4 @@
-theme: jekyll-theme-minimal
 title: Keegan Whitacre
-description: Researcher
-
 collections:
   projects:
     output: true
