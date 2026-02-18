@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Keegan Whitacre</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: left;
+            width: 100%;
+        }
+        .pdf-container {
+            width: 100%;
+            height: 1100px; /* Adjust height based on your preference */
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            margin-top: 20px;
+            text-decoration: none;
+            color: #5b84b1;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CV</h1>
+        
+        <object data="assets/CV.pdf" type="application/pdf" class="pdf-container">
+            <p>It appears your browser doesn't support embedded PDFs. 
+               <a href="assets/CV.pdf">Click here to download the PDF file.</a>
+            </p>
+        </object>
+
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+</body>
+</html>
