@@ -1,9 +1,5 @@
 ---
-title: "Emotion Malleability Poster"
-date: "2026"
-conference: "Society for Affective Science"
-image: "images/headshot.JPG"
-description: "Research project description goes here."
+title: Emotion Poster
+date: 2026
 ---
-
-Text outside the dashes.
+Test content.
