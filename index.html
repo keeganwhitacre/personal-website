@@ -15,17 +15,19 @@
             margin: 0;
             background-color: #ffffff;
             color: #333;
-            text-align: left;
         }
         .container {
             max-width: 600px;
-            padding: 20px;
+            padding: 40px 20px;
+            /* Added text-align center here to help the buttons/footer align */
+            text-align: center; 
         }
         header {
             display: flex;
             align-items: center;
             gap: 20px;
             margin-bottom: 30px;
+            text-align: left; /* Keeps your name and title left-aligned */
         }
         .profile-pic {
             width: 120px;
@@ -47,13 +49,16 @@
             font-size: 1.05rem;
             line-height: 1.6;
             margin-bottom: 40px;
+            text-align: left; /* Keeps your bio professional and readable */
         }
         .button-container {
             display: flex;
+            justify-content: center; /* Centers the Projects/CV buttons */
             gap: 15px;
+            margin-bottom: 60px; /* Creates space for the footer */
         }
         .btn {
-            background-color: #5b84b1; /* The blue from the screenshot */
+            background-color: #5b84b1;
             color: white;
             padding: 10px 35px;
             border-radius: 25px;
@@ -68,17 +73,16 @@
             display: flex;
             justify-content: center;
             gap: 25px;
-            margin-top: 60px; /* Space below the blue buttons */
-            padding-bottom: 40px;
+            padding-bottom: 20px;
         }
         .social-icon {
-            width: 30px; /* Scaling down slightly often looks cleaner than full 40px */
-            height: 30px;
+            width: 28px; /* Slightly smaller looks a bit more "subtle" */
+            height: 28px;
             transition: opacity 0.2s ease;
-            opacity: 0.8;
+            opacity: 0.7;
         }
         .social-icon:hover {
-            opacity: 1; /* Subtle hover effect */
+            opacity: 1;
         }
     </style>
 </head>
@@ -102,14 +106,15 @@
             <a href="projects.html" class="btn">Projects</a>
             <a href="cv.html" class="btn">CV</a>
         </div>
+
+        <footer class="contact-footer">
+            <a href="https://www.linkedin.com/in/keegan-whitacre" target="_blank">
+                <img src="assets/linkedin-logo.png" alt="LinkedIn" class="social-icon">
+            </a>
+            <a href="mailto:whitacre.124@osu.edu">
+                <img src="assets/email-logo.png" alt="Email" class="social-icon">
+            </a>
+        </footer>
     </div>
-    <footer class="contact-footer">
-    <a href="https://www.linkedin.com/in/keegan-whitacre" target="_blank">
-        <img src="assets/linkedin-logo.png" alt="LinkedIn" class="social-icon">
-    </a>
-    <a href="mailto:whitacre.124@osu.edu">
-        <img src="assets/email-logo.png" alt="Email" class="social-icon">
-    </a>
-</footer>
 </body>
 </html>
