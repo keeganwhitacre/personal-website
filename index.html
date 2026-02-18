@@ -64,6 +64,22 @@
         .btn:hover {
             background-color: #4a6d91;
         }
+        .contact-footer {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 60px; /* Space below the blue buttons */
+            padding-bottom: 40px;
+        }
+        .social-icon {
+            width: 30px; /* Scaling down slightly often looks cleaner than full 40px */
+            height: 30px;
+            transition: opacity 0.2s ease;
+            opacity: 0.8;
+        }
+        .social-icon:hover {
+            opacity: 1; /* Subtle hover effect */
+        }
     </style>
 </head>
 <body>
@@ -87,5 +103,13 @@
             <a href="cv.html" class="btn">CV</a>
         </div>
     </div>
+    <footer class="contact-footer">
+    <a href="https://www.linkedin.com/in/YOUR-PROFILE-URL" target="_blank">
+        <img src="linkedin-logo.png" alt="LinkedIn" class="social-icon">
+    </a>
+    <a href="mailto:keeganwhitacre@gmail.com">
+        <img src="email-logo.png" alt="Email" class="social-icon">
+    </a>
+</footer>
 </body>
 </html>
