@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects · Keegan Whitacre</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
     <meta name="description" content="Research projects by Keegan Whitacre — psychology researcher at The Ohio State University studying early life stress, emotion, and narrative meaning-making.">
     <meta property="og:site_name" content="Keegan Whitacre">
     <style>
@@ -86,11 +85,14 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             background: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .project-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
         .project-text {
             flex: 1;
@@ -164,7 +166,8 @@
             }
             .project-image {
                 width: 100%;
-                height: 160px;
+                height: auto;
+                max-height: 250px;
             }
             .page-header h1 {
                 font-size: 1.6rem;
@@ -209,7 +212,7 @@
                     <p class="project-authors"><strong>Whitacre, K.</strong>, Feldman, M., Bonar, A., Ma, R., Lindquist, K.</p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        This project originally tested whether beliefs about emotion malleability (PBEM) moderate the link between childhood maltreatment and adult sleep — they did not, across all PSQI components, all 10 MACE subscales, and all 8 Fitbit outcomes. The more interesting result emerged from the data itself: maltreatment strongly predicted self-reported sleep disturbances (r = .42, p < .001, N = 131) but showed no relationship with objectively measured sleep disruption via Fitbit wearable (r = .04, ns, N = 96). We formalized this dissociation as a subjective-objective discrepancy score and found greater maltreatment history predicts a larger perception gap (r = .32, p = .007, N = 70). Exploratory analyses in a subset (N = 70) suggest interoceptive accuracy (heartbeat discrimination d') may partially explain this gap, consistent with a constructionist account in which early adversity biases interoceptive prediction toward threat. Age independently predicted objective sleep fragmentation, not maltreatment — suggesting the subjective-objective split is specific to adversity history rather than general physiological decline.
+                        This project originally tested whether beliefs about emotion malleability (PBEM) moderate the link between childhood maltreatment and adult sleep — they did not, across all PSQI components, all 10 MACE subscales, and all 8 Fitbit outcomes. The more interesting result emerged from the data itself: maltreatment strongly predicted self-reported sleep disturbances (r = .42, p &lt; .001, N = 131) but showed no relationship with objectively measured sleep disruption via Fitbit wearable (r = .04, ns, N = 96). We formalized this dissociation as a subjective-objective discrepancy score and found greater maltreatment history predicts a larger perception gap (r = .32, p = .007, N = 70). Exploratory analyses in a subset (N = 70) suggest interoceptive accuracy (heartbeat discrimination d') may partially explain this gap, consistent with a constructionist account in which early adversity biases interoceptive prediction toward threat. Age independently predicted objective sleep fragmentation, not maltreatment — suggesting the subjective-objective split is specific to adversity history rather than general physiological decline.
                         <a href="files/sas-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
                     </div>
                 </div>
