@@ -86,6 +86,9 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             background: #f0f4f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .project-image img {
             width: 100%;
@@ -384,6 +387,33 @@
             </div>
         </div>
 
+        <!-- SOFTWARE & TOOLS -->
+        <div class="year-group">
+            <h2 class="year-label">Software & Tools</h2>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div style="color: #5b84b1; font-family: monospace; font-weight: bold; font-size: 1.3rem;">{ EMA }</div>
+                </div>
+                <div class="project-text">
+                    <p class="project-venue">Software Framework · In Development</p>
+                    <p class="project-title">EMA Forge</p>
+                    <p class="project-authors">Developed by <strong>Keegan Whitacre</strong></p>
+                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show details</button>
+                    <div class="project-abstract">
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                EMA Forge is a framework designed to streamline the creation, deployment, and management of Ecological Momentary Assessment (EMA) protocols. It allows researchers to efficiently construct and schedule high-frequency surveys to capture behavioral and affective data in daily life, lowering the technical barrier to robust longitudinal data collection.
+                                <br><br>
+                                <strong>Status:</strong> Internal testing phase. Documentation and layout preview available below.
+                                <a href="/readme-2.html" class="download-btn" style="display:block; margin-top:10px;">→ View EMA Forge Documentation Preview</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script>
@@ -391,7 +421,7 @@
             const abstract = btn.nextElementSibling;
             const isOpen = abstract.classList.contains('open');
             abstract.classList.toggle('open');
-            btn.textContent = isOpen ? '− Hide description' : '+ Show description';
+            btn.textContent = isOpen ? '− Hide description' : '+ Show details';
         }
     </script>
 </body>
