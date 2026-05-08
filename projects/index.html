@@ -399,7 +399,7 @@
                     <p class="project-venue">Software Framework · In Development</p>
                     <p class="project-title">EMA Forge</p>
                     <p class="project-authors">Developed by <strong>Keegan Whitacre</strong></p>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show details</button>
+                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
@@ -419,9 +419,8 @@
     <script>
         function toggleAbstract(btn) {
             const abstract = btn.nextElementSibling;
-            const isOpen = abstract.classList.contains('open');
-            abstract.classList.toggle('open');
-            btn.textContent = isOpen ? '− Hide description' : '+ Show details';
+            const isNowOpen = abstract.classList.toggle('open');
+            btn.textContent = isNowOpen ? '− Hide description' : '+ Show description';
         }
     </script>
 </body>
