@@ -125,7 +125,7 @@
             line-height: 1.6;
         }
 
-        /* Expandable abstract */
+        /* Expandable abstract with smooth transition */
         .toggle-btn {
             background: none;
             border: none;
@@ -142,19 +142,29 @@
         .toggle-btn:hover {
             text-decoration: underline;
         }
+        
+        /* Grid transition setup */
         .project-abstract {
-            display: none;
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.35s ease-out, margin 0.35s ease-out;
+            margin-top: 0;
+        }
+        .project-abstract.open {
+            grid-template-rows: 1fr;
+            margin-top: 10px;
+        }
+        .project-abstract-inner {
+            overflow: hidden;
+        }
+        .project-abstract-content {
             font-size: 0.88rem;
             color: #555;
             line-height: 1.6;
-            margin-top: 10px;
             padding: 12px 14px;
             background: #f8fafc;
             border-radius: 8px;
             border-left: 3px solid #d0dcea;
-        }
-        .project-abstract.open {
-            display: block;
         }
 
         @media (max-width: 480px) {
@@ -186,7 +196,7 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/handbook.png" alt="Handbook of Emotion Development">
+                    <img src="/images/handbook.png" alt="Handbook of Emotion Development">
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Chapter · Handbook of Emotion Development</p>
@@ -194,14 +204,18 @@
                     <p class="project-authors">Lindquist, K., <strong>Whitacre, K.</strong>, Shablack, H.</p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        This chapter reviews how linguistic environments shape the way children learn to categorize and understand emotions. We synthesize research from infancy through adolescence to show that learning emotion words helps children transition from broad 'good vs. bad' feelings to specific categories like anger, sadness, or fear. My contribution involved integrating recent empirical findings to illustrate how acquiring these emotion concepts actively changes how children interpret both social cues and their own internal states.
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                This chapter reviews how linguistic environments shape the way children learn to categorize and understand emotions. We synthesize research from infancy through adolescence to show that learning emotion words helps children transition from broad 'good vs. bad' feelings to specific categories like anger, sadness, or fear. My contribution involved integrating recent empirical findings to illustrate how acquiring these emotion concepts actively changes how children interpret both social cues and their own internal states.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/sas.png" alt="Society for Affective Science poster">
+                    <img src="/images/sas.png" alt="Society for Affective Science poster">
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Poster · Society for Affective Science</p>
@@ -209,15 +223,19 @@
                     <p class="project-authors"><strong>Whitacre, K.</strong>, Feldman, M., Bonar, A., Ma, R., Lindquist, K.</p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        This project originally tested whether beliefs about emotion malleability (PBEM) moderate the link between childhood maltreatment and adult sleep — they did not, across all PSQI components and Fitbit outcomes. The more interesting result emerged from the data itself: maltreatment strongly predicted self-reported sleep disturbances (r = .42, p < .001, N = 131) but showed no relationship with objectively measured sleep via Fitbit actigraphy (r = −.06, ns, N = 97). We formalized this dissociation as a subjective-objective discrepancy score and found that greater maltreatment history predicts a larger perception gap (r = .32, p = .007, N = 70). Exploratory analyses suggest interoceptive emotional awareness (MAIA Emotional Awareness subscale) explains part of this gap (r = .28, p = .020), consistent with a Theory of Constructed Emotion account in which early adversity biases interoceptive prediction toward threat. Age independently moderated the MACE effect on the gap, with the maltreatment-driven perceptual bias attenuating in adults above approximately age 48.
-                        <a href="files/sas-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                This project originally tested whether beliefs about emotion malleability (PBEM) moderate the link between childhood maltreatment and adult sleep — they did not, across all PSQI components and Fitbit outcomes. The more interesting result emerged from the data itself: maltreatment strongly predicted self-reported sleep disturbances (r = .42, p < .001, N = 131) but showed no relationship with objectively measured sleep via Fitbit actigraphy (r = −.06, ns, N = 97). We formalized this dissociation as a subjective-objective discrepancy score and found that greater maltreatment history predicts a larger perception gap (r = .32, p = .007, N = 70). Exploratory analyses suggest interoceptive emotional awareness (MAIA Emotional Awareness subscale) explains part of this gap (r = .28, p = .020), consistent with a Theory of Constructed Emotion account in which early adversity biases interoceptive prediction toward threat. Age independently moderated the MACE effect on the gap, with the maltreatment-driven perceptual bias attenuating in adults above approximately age 48.
+                                <a href="/files/sas-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/lpa.png" alt="Latent Profile Analysis manuscript">
+                    <img src="/images/lpa.png" alt="Latent Profile Analysis manuscript">
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Manuscript in Review · Applied Cognitive Psychology</p>
@@ -225,7 +243,11 @@
                     <p class="project-authors">Cogdill-Richardson, K., <strong>Whitacre, K.</strong>, Bluck, S.</p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        This study applies Latent Profile Analysis (LPA) to identify distinct patterns of life stress exposure and meaning-making within a Dignity Therapy sample. Using person-centered modeling in R and Mplus, we examined how profiles of early life stress, adult stress, religion, and social support relate to psychological outcomes. The study advances beyond cumulative stress indices by identifying heterogeneity in stress exposure and narrative integration.
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                This study applies Latent Profile Analysis (LPA) to identify distinct patterns of life stress exposure and meaning-making within a Dignity Therapy sample. Using person-centered modeling in R and Mplus, we examined how profiles of early life stress, adult stress, religion, and social support relate to psychological outcomes. The study advances beyond cumulative stress indices by identifying heterogeneity in stress exposure and narrative integration.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -237,7 +259,7 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/dignity-therapy.png" alt="Invited Talk">
+                    <img src="/images/dignity-therapy.png" alt="Invited Talk">
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Invited Talk · Clinical and Health Psychology Seminar, UF</p>
@@ -245,15 +267,19 @@
                     <p class="project-authors"><strong>Whitacre, K.</strong></p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        Delivered a 1-hour invited seminar synthesizing theoretical foundations, clinical applications, and ongoing research related to Dignity Therapy. The presentation integrated developmental, narrative, and affective perspectives on how individuals construct meaning around serious illness and life stress. I also discussed emerging quantitative findings and future directions examining narrative integration as a mechanism linking adversity to psychological outcomes.
-                        <a href="files/dt-slides.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Slides</a>
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                Delivered a 1-hour invited seminar synthesizing theoretical foundations, clinical applications, and ongoing research related to Dignity Therapy. The presentation integrated developmental, narrative, and affective perspectives on how individuals construct meaning around serious illness and life stress. I also discussed emerging quantitative findings and future directions examining narrative integration as a mechanism linking adversity to psychological outcomes.
+                                <a href="/files/dt-slides.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Slides</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/stress-meaning.png" alt="Poster presentation">
+                    <img src="/images/stress-meaning.png" alt="Poster presentation">
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Poster · Institute for Learning in Retirement</p>
@@ -261,8 +287,12 @@
                     <p class="project-authors"><strong>Whitacre, K.</strong>, Cogdill-Richardson, K., Bluck, S.</p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        This follow up project examined how individuals with varying levels of early life adversity differed in the types of stressors they discussed during Dignity Therapy and how they constructed meaning around those events. Rather than focusing solely on exposure, we analyzed patterns in the content of narratives, including whether stressors were self initiated or emerged in response to provider prompts. Using structured content coding and quantitative comparisons, we investigated how cumulative early adversity related to narrative emphasis, thematic focus, and meaning making processes.
-                        <a href="files/ilr-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                This follow up project examined how individuals with varying levels of early life adversity differed in the types of stressors they discussed during Dignity Therapy and how they constructed meaning around those events. Rather than focusing solely on exposure, we analyzed patterns in the content of narratives, including whether stressors were self initiated or emerged in response to provider prompts. Using structured content coding and quantitative comparisons, we investigated how cumulative early adversity related to narrative emphasis, thematic focus, and meaning making processes.
+                                <a href="/files/ilr-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -274,7 +304,7 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/provider-prompted.png" alt="UF Cancer Institute poster">
+                    <img src="/images/provider-prompted.png" alt="UF Cancer Institute poster">
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Poster · UF Cancer Institute Research Showcase</p>
@@ -282,22 +312,30 @@
                     <p class="project-authors"><strong>Whitacre, K.</strong>, Cogdill-Richardson, K., Bluck, S.</p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        Building on prior coding work, this project examined how early life adversity is incorporated into narrative meaning in terminally ill cancer patients undergoing Dignity Therapy. Using a dataset of over 200 participants, I independently double coded transcripts and conducted quantitative analyses in R. We investigated whether the presence and severity of childhood stressors predicted differences in how individuals construct and interpret their life stories. Findings highlighted the important role of provider prompting in eliciting meaning making.
-                        <a href="files/cc-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                Building on prior coding work, this project examined how early life adversity is incorporated into narrative meaning in terminally ill cancer patients undergoing Dignity Therapy. Using a dataset of over 200 participants, I independently double coded transcripts and conducted quantitative analyses in R. We investigated whether the presence and severity of childhood stressors predicted differences in how individuals construct and interpret their life stories. Findings highlighted the important role of provider prompting in eliciting meaning making.
+                                <a href="/files/cc-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/life-stressors.png" alt="Life Story Lab">
+                    <img src="/images/life-stressors.png" alt="Life Story Lab">
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Project · Life Story Lab</p>
                     <p class="project-title">Stressful Life Events in Dignity Therapy</p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        I qualitatively analyzed over 140 Dignity Therapy transcripts to identify and classify stressful life events described by older adults with cancer. We developed a modified Social Readjustment Rating Scale to support systematic biographical coding, and I achieved strong interrater reliability (κ = .81). This project examined how individuals reference and contextualize life stressors within structured narrative interventions. The work laid the foundation for examining how early adversity is integrated into later life meaning making.
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                I qualitatively analyzed over 140 Dignity Therapy transcripts to identify and classify stressful life events described by older adults with cancer. We developed a modified Social Readjustment Rating Scale to support systematic biographical coding, and I achieved strong interrater reliability (κ = .81). This project examined how individuals reference and contextualize life stressors within structured narrative interventions. The work laid the foundation for examining how early adversity is integrated into later life meaning making.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -309,14 +347,18 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <img src="images/cdmlab.png" alt="Cognition and Decision Modeling Lab">
+                    <img src="/images/cdmlab.png" alt="Cognition and Decision Modeling Lab">
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Project · Cognition and Decision Modeling Lab</p>
                     <p class="project-title">Eye Tracking Decision Making</p>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
-                        This project examined decision making and reward processes using behavioral paradigms and eye tracking methodology. I assisted in participant coordination, experimental administration, and quantitative analysis in R. The study investigated how multiple weighted choices alter cognitive processing and choice behavior. This experience provided formal training in experimental design, behavioral data analysis, and computational modeling.
+                        <div class="project-abstract-inner">
+                            <div class="project-abstract-content">
+                                This project examined decision making and reward processes using behavioral paradigms and eye tracking methodology. I assisted in participant coordination, experimental administration, and quantitative analysis in R. The study investigated how multiple weighted choices alter cognitive processing and choice behavior. This experience provided formal training in experimental design, behavioral data analysis, and computational modeling.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -329,7 +371,7 @@
             const abstract = btn.nextElementSibling;
             const isOpen = abstract.classList.contains('open');
             abstract.classList.toggle('open');
-            btn.textContent = isOpen ? '+ Show description' : '− Hide description';
+            btn.textContent = isOpen ? '− Hide description' : '+ Show description';
         }
     </script>
 </body>
