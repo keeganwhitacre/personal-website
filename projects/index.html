@@ -9,17 +9,6 @@
     <meta name="description" content="Research projects by Keegan Whitacre — psychology researcher at The Ohio State University studying early life stress, emotion, and narrative meaning-making.">
     <meta property="og:site_name" content="Keegan Whitacre">
     <style>
-        .download-btn {
-            display: inline-block;
-            margin-top: 8px;
-            font-size: 0.82rem;
-            color: #5b84b1;
-            text-decoration: none;
-            font-family: inherit;
-        }
-        .download-btn:hover {
-            text-decoration: underline;
-        }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -66,7 +55,7 @@
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: #999;
-            margin: 0 0 20px;
+            margin: 0 0 24px;
             padding-bottom: 8px;
             border-bottom: 1px solid #eee;
         }
@@ -75,17 +64,18 @@
         .project-card {
             display: flex;
             gap: 24px;
-            margin-bottom: 32px;
+            margin-bottom: 40px;
             align-items: flex-start;
         }
         .project-image {
             flex-shrink: 0;
-            width: 110px;
-            height: 80px;
+            width: 140px;
+            aspect-ratio: 4 / 3;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            background: #f0f4f8;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            background: #fcfdfd;
+            border: 1px solid #f0f4f8;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -104,28 +94,38 @@
             letter-spacing: 0.06em;
             text-transform: uppercase;
             color: #5b84b1;
-            margin: 0 0 4px;
+            margin: 0 0 6px;
         }
         .project-title {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #222;
-            margin: 0 0 4px;
+            margin: 0 0 6px;
             line-height: 1.35;
         }
         .project-authors {
-            font-size: 0.85rem;
-            color: #777;
-            margin: 0 0 8px;
+            font-size: 0.9rem;
+            color: #666;
+            margin: 0 0 10px;
         }
         .project-authors strong {
-            color: #444;
+            color: #333;
         }
-        .project-desc {
-            font-size: 0.9rem;
-            color: #555;
-            margin: 0;
-            line-height: 1.6;
+        
+        /* Tags (Matches CV Page) */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+        .tag {
+            background: #f0f4f8;
+            color: #4a6d91;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 500;
         }
 
         /* Expandable abstract with smooth transition */
@@ -133,14 +133,14 @@
             background: none;
             border: none;
             padding: 0;
-            margin-top: 8px;
-            font-size: 0.82rem;
+            font-size: 0.9rem;
             color: #5b84b1;
             cursor: pointer;
             font-family: inherit;
             display: flex;
             align-items: center;
             gap: 4px;
+            font-weight: 500;
         }
         .toggle-btn:hover {
             text-decoration: underline;
@@ -150,35 +150,54 @@
         .project-abstract {
             display: grid;
             grid-template-rows: 0fr;
-            transition: grid-template-rows 0.35s ease-out, margin 0.35s ease-out;
+            transition: grid-template-rows 0.3s ease-out, margin 0.3s ease-out;
             margin-top: 0;
         }
         .project-abstract.open {
             grid-template-rows: 1fr;
-            margin-top: 14px; /* Slightly more space before it opens */
+            margin-top: 12px;
         }
         .project-abstract-inner {
             overflow: hidden;
         }
+        
+        /* Abstract content matching CV style */
         .project-abstract-content {
-            font-size: 0.9rem; /* Bumped up slightly for readability */
-            color: #444; /* Darker gray for better contrast */
-            line-height: 1.7; /* Let the text breathe */
-            padding: 16px 20px; /* More padding makes it feel premium */
-            background: #fcfdfd; /* A very, very subtle cool white/gray */
-            border-radius: 8px;
-            border: 1px solid #e1e7f0; /* Full, subtle border instead of just left */
-            box-shadow: 0 2px 8px rgba(91, 132, 177, 0.06); /* Very subtle blue-tinted shadow */
+            font-size: 0.95rem; 
+            color: #444; 
+            line-height: 1.6; 
+            padding: 4px 0 4px 16px; 
+            border-left: 2px solid #e0e8f0; 
+            margin-bottom: 8px;
+        }
+
+        /* Subtle pill buttons for actions */
+        .action-link {
+            display: inline-block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #5b84b1;
+            background: #f0f4f8;
+            padding: 6px 14px;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .action-link:hover {
+            background: #e0e8f0;
+            color: #3a5c7d;
         }
 
         @media (max-width: 480px) {
             .project-card {
                 flex-direction: column;
-                gap: 14px;
+                gap: 16px;
             }
             .project-image {
                 width: 100%;
-                height: 160px;
+                height: 180px;
+                aspect-ratio: auto;
             }
             .page-header h1 {
                 font-size: 1.6rem;
@@ -206,12 +225,18 @@
                     <p class="project-venue">Invited Talk (CME) · UF Health Palliative Care</p>
                     <p class="project-title">Mechanisms of Dignity Therapy</p>
                     <p class="project-authors"><strong>Whitacre, K.</strong></p>
+                    <div class="tag-list">
+                        <span class="tag">Palliative Care</span>
+                        <span class="tag">Narrative Medicine</span>
+                    </div>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
                                 Delivered a CME Accredited Lunch and Learn presentation for palliative care providers at UF Health discussing the mechanisms behind Dignity Therapy. The talk highlighted our <a href="https://doi.org/10.1177/10966218251399600" target="_blank" style="color: #5b84b1; text-decoration: underline;">recently published paper</a> and ongoing research from the Life Story Lab regarding how narrative richness and empathy drive therapeutic impact.
-                                <a href="/files/Mechanisms.pptx" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Slides</a>
+                                <div>
+                                    <a href="/files/Mechanisms.pptx" class="action-link" target="_blank">↓ Download Slides</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -226,6 +251,10 @@
                     <p class="project-venue">Chapter · Handbook of Emotion Development</p>
                     <p class="project-title">The Intersection of Language and Emotion Across Early Development</p>
                     <p class="project-authors">Lindquist, K., <strong>Whitacre, K.</strong>, Shablack, H.</p>
+                    <div class="tag-list">
+                        <span class="tag">Affective Science</span>
+                        <span class="tag">Developmental Psychology</span>
+                    </div>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
@@ -245,12 +274,19 @@
                     <p class="project-venue">Poster · Society for Affective Science</p>
                     <p class="project-title">Childhood Maltreatment Predicts Perceived But Not Objective Sleep Disruption</p>
                     <p class="project-authors"><strong>Whitacre, K.</strong>, Feldman, M., Bonar, A., Ma, R., Lindquist, K.</p>
+                    <div class="tag-list">
+                        <span class="tag">Early Life Stress</span>
+                        <span class="tag">Interoception</span>
+                        <span class="tag">R</span>
+                    </div>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
-                                This project originally tested whether beliefs about emotion malleability (PBEM) moderate the link between childhood maltreatment and adult sleep — they did not, across all PSQI components and Fitbit outcomes. The more interesting result emerged from the data itself: maltreatment strongly predicted self-reported sleep disturbances (r = .42, p < .001, N = 131) but showed no relationship with objectively measured sleep via Fitbit actigraphy (r = −.06, ns, N = 97). We formalized this dissociation as a subjective-objective discrepancy score and found that greater maltreatment history predicts a larger perception gap (r = .32, p = .007, N = 70). Exploratory analyses suggest interoceptive emotional awareness (MAIA Emotional Awareness subscale) explains part of this gap (r = .28, p = .020), consistent with a Theory of Constructed Emotion account in which early adversity biases interoceptive prediction toward threat. Age independently moderated the MACE effect on the gap, with the maltreatment-driven perceptual bias attenuating in adults above approximately age 48.
-                                <a href="/files/sas-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                                This project originally tested whether beliefs about emotion malleability (PBEM) moderate the link between childhood maltreatment and adult sleep — they did not, across all PSQI components and Fitbit outcomes. The more interesting result emerged from the data itself: maltreatment strongly predicted self-reported sleep disturbances (r = .42, p < .001, N = 131) but showed no relationship with objectively measured sleep via Fitbit actigraphy (r = −.06, ns, N = 97). We formalized this dissociation as a subjective-objective discrepancy score and found that greater maltreatment history predicts a larger perception gap. Exploratory analyses suggest interoceptive emotional awareness explains part of this gap.
+                                <div>
+                                    <a href="/files/sas-poster.pdf" class="action-link" target="_blank">↓ Download Poster</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -265,6 +301,10 @@
                     <p class="project-venue">Accepted · Applied Cognitive Psychology</p>
                     <p class="project-title">Latent Profiles of Life Stress and Resilience</p>
                     <p class="project-authors">Cogdill-Richardson, K., <strong>Whitacre, K.</strong>, Bluck, S.</p>
+                    <div class="tag-list">
+                        <span class="tag">Latent Profile Analysis</span>
+                        <span class="tag">Quantitative Modeling</span>
+                    </div>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
@@ -289,12 +329,17 @@
                     <p class="project-venue">Invited Talk · Clinical and Health Psychology Seminar, UF</p>
                     <p class="project-title">Dignity Therapy and Narrative Mechanisms</p>
                     <p class="project-authors"><strong>Whitacre, K.</strong></p>
+                    <div class="tag-list">
+                        <span class="tag">Narrative Psychology</span>
+                    </div>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
                                 Delivered a 1-hour invited seminar synthesizing theoretical foundations, clinical applications, and ongoing research related to Dignity Therapy. The presentation integrated developmental, narrative, and affective perspectives on how individuals construct meaning around serious illness and life stress. I also discussed emerging quantitative findings and future directions examining narrative integration as a mechanism linking adversity to psychological outcomes.
-                                <a href="/files/dt-slides.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Slides</a>
+                                <div>
+                                    <a href="/files/dt-slides.pdf" class="action-link" target="_blank">↓ Download Slides</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -309,12 +354,18 @@
                     <p class="project-venue">Poster · Institute for Learning in Retirement</p>
                     <p class="project-title">Dignity Therapy for Older Adults: Revisiting Early Life Stressors</p>
                     <p class="project-authors"><strong>Whitacre, K.</strong>, Cogdill-Richardson, K., Bluck, S.</p>
+                    <div class="tag-list">
+                        <span class="tag">Content Analysis</span>
+                        <span class="tag">Lifespan Development</span>
+                    </div>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
-                                This follow up project examined how individuals with varying levels of early life adversity differed in the types of stressors they discussed during Dignity Therapy and how they constructed meaning around those events. Rather than focusing solely on exposure, we analyzed patterns in the content of narratives, including whether stressors were self initiated or emerged in response to provider prompts. Using structured content coding and quantitative comparisons, we investigated how cumulative early adversity related to narrative emphasis, thematic focus, and meaning making processes.
-                                <a href="/files/ilr-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                                This follow up project examined how individuals with varying levels of early life adversity differed in the types of stressors they discussed during Dignity Therapy and how they constructed meaning around those events. Rather than focusing solely on exposure, we analyzed patterns in the content of narratives, including whether stressors were self initiated or emerged in response to provider prompts. Using structured content coding and quantitative comparisons, we investigated how cumulative early adversity related to narrative emphasis.
+                                <div>
+                                    <a href="/files/ilr-poster.pdf" class="action-link" target="_blank">↓ Download Poster</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -338,8 +389,10 @@
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
-                                Building on prior coding work, this project examined how early life adversity is incorporated into narrative meaning in terminally ill cancer patients undergoing Dignity Therapy. Using a dataset of over 200 participants, I independently double coded transcripts and conducted quantitative analyses in R. We investigated whether the presence and severity of childhood stressors predicted differences in how individuals construct and interpret their life stories. Findings highlighted the important role of provider prompting in eliciting meaning making.
-                                <a href="/files/cc-poster.pdf" class="download-btn" style="display:block; margin-top:10px;" target="_blank">↓ Download Poster</a>
+                                Building on prior coding work, this project examined how early life adversity is incorporated into narrative meaning in terminally ill cancer patients undergoing Dignity Therapy. Using a dataset of over 200 participants, I independently double coded transcripts and conducted quantitative analyses in R. We investigated whether the presence and severity of childhood stressors predicted differences in how individuals construct and interpret their life stories.
+                                <div>
+                                    <a href="/files/cc-poster.pdf" class="action-link" target="_blank">↓ Download Poster</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -357,7 +410,7 @@
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
-                                I qualitatively analyzed over 140 Dignity Therapy transcripts to identify and classify stressful life events described by older adults with cancer. We developed a modified Social Readjustment Rating Scale to support systematic biographical coding, and I achieved strong interrater reliability (κ = .81). This project examined how individuals reference and contextualize life stressors within structured narrative interventions. The work laid the foundation for examining how early adversity is integrated into later life meaning making.
+                                I qualitatively analyzed over 140 Dignity Therapy transcripts to identify and classify stressful life events described by older adults with cancer. We developed a modified Social Readjustment Rating Scale to support systematic biographical coding, and I achieved strong interrater reliability (κ = .81). This project examined how individuals reference and contextualize life stressors within structured narrative interventions.
                             </div>
                         </div>
                     </div>
@@ -380,7 +433,7 @@
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
-                                This project examined decision making and reward processes using behavioral paradigms and eye tracking methodology. I assisted in participant coordination, experimental administration, and quantitative analysis in R. The study investigated how multiple weighted choices alter cognitive processing and choice behavior. This experience provided formal training in experimental design, behavioral data analysis, and computational modeling.
+                                This project examined decision making and reward processes using behavioral paradigms and eye tracking methodology. I assisted in participant coordination, experimental administration, and quantitative analysis in R. The study investigated how multiple weighted choices alter cognitive processing and choice behavior.
                             </div>
                         </div>
                     </div>
@@ -394,20 +447,26 @@
 
             <div class="project-card">
                 <div class="project-image">
-                    <div style="color: #5b84b1; font-family: monospace; font-weight: bold; font-size: 1.3rem;">{ EMA }</div>
+                    <div style="color: #5b84b1; font-family: monospace; font-weight: bold; font-size: 1.5rem;">{ EMA }</div>
                 </div>
                 <div class="project-text">
                     <p class="project-venue">Software Framework · In Development</p>
                     <p class="project-title">EMA Forge</p>
                     <p class="project-authors">Developed by <strong>Keegan Whitacre</strong></p>
+                    <div class="tag-list">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Open Source</span>
+                    </div>
                     <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
                     <div class="project-abstract">
                         <div class="project-abstract-inner">
                             <div class="project-abstract-content">
-                                EMA Forge is an open-source framework designed to streamline the creation, deployment, and management of Ecological Momentary Assessment (EMA) protocols. Moving beyond standard text surveys, a unique feature of this platform is the integration of web-based Photoplethysmography (PPG), enabling researchers to capture physiological data (e.g., heart rate) directly through a participant's smartphone camera. Featuring automated, cross-platform protocol delivery and robust scheduling, EMA Forge lowers the technical barrier to multi-modal longitudinal data collection.
+                                EMA Forge is an open-source framework designed to streamline the creation, deployment, and management of Ecological Momentary Assessment (EMA) protocols. Moving beyond standard text surveys, a unique feature of this platform is the integration of web-based Photoplethysmography (PPG), enabling researchers to capture physiological data (e.g., heart rate) directly through a participant's smartphone camera. 
                                 <br><br>
                                 <strong>Status:</strong> Internal testing phase. Documentation and layout preview available below.
-                                <a href="https://emaforge.keeganwhitacre.com/readme.html" class="download-btn" style="display:block; margin-top:10px;" target="_blank">→ View EMA Forge Documentation Preview</a>
+                                <div>
+                                    <a href="https://emaforge.keeganwhitacre.com/readme.html" class="action-link" target="_blank">→ View Documentation Preview</a>
+                                </div>
                             </div>
                         </div>
                     </div>
