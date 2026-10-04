@@ -1,536 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects · Keegan Whitacre</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="description" content="Research projects by Keegan Whitacre — psychology researcher at The Ohio State University studying early life stress, emotion, and narrative meaning-making.">
-    <meta property="og:site_name" content="Keegan Whitacre">
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            background-color: #ffffff;
-            color: #333;
-            line-height: 1.6;
-        }
-        .page {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 40px 20px 80px;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 32px;
-            color: #5b84b1;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        .page-header {
-            margin-bottom: 48px;
-        }
-        .page-header h1 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 0 6px;
-        }
-        .page-header p {
-            color: #666;
-            font-size: 0.9rem;
-            margin: 0;
-        }
-
-        /* Year group label */
-        .year-group {
-            margin-bottom: 48px;
-        }
-        .year-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #999;
-            margin: 0 0 24px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #eee;
-        }
-
-        /* Project card */
-        .project-card {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 40px;
-            align-items: flex-start;
-        }
-        .project-image {
-            flex-shrink: 0;
-            width: 140px;
-            aspect-ratio: 4 / 3;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            background: #fcfdfd;
-            border: 1px solid #f0f4f8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .project-text {
-            flex: 1;
-        }
-        .project-venue {
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            color: #5b84b1;
-            margin: 0 0 6px;
-        }
-        .project-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #222;
-            margin: 0 0 6px;
-            line-height: 1.35;
-        }
-        .project-authors {
-            font-size: 0.9rem;
-            color: #666;
-            margin: 0 0 10px;
-        }
-        .project-authors strong {
-            color: #333;
-        }
-        
-        /* Tags (Matches CV Page) */
-        .tag-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 12px;
-        }
-        .tag {
-            background: #f0f4f8;
-            color: #4a6d91;
-            font-size: 0.75rem;
-            padding: 3px 10px;
-            border-radius: 12px;
-            font-weight: 500;
-        }
-
-        /* Expandable abstract with smooth transition */
-        .toggle-btn {
-            background: none;
-            border: none;
-            padding: 0;
-            font-size: 0.9rem;
-            color: #5b84b1;
-            cursor: pointer;
-            font-family: inherit;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-weight: 500;
-        }
-        .toggle-btn:hover {
-            text-decoration: underline;
-        }
-        
-        /* Grid transition setup */
-        .project-abstract {
-            display: grid;
-            grid-template-rows: 0fr;
-            transition: grid-template-rows 0.3s ease-out, margin 0.3s ease-out;
-            margin-top: 0;
-        }
-        .project-abstract.open {
-            grid-template-rows: 1fr;
-            margin-top: 12px;
-        }
-        .project-abstract-inner {
-            overflow: hidden;
-        }
-        
-        /* Abstract content matching CV style */
-        .project-abstract-content {
-            font-size: 0.95rem; 
-            color: #444; 
-            line-height: 1.6; 
-            padding: 4px 0 4px 16px; 
-            border-left: 2px solid #e0e8f0; 
-            margin-bottom: 8px;
-        }
-
-        /* Subtle pill buttons for actions */
-        .action-link {
-            display: inline-block;
-            margin-top: 12px;
-            font-size: 0.85rem;
-            color: #5b84b1;
-            background: #f0f4f8;
-            padding: 6px 14px;
-            border-radius: 16px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s ease, color 0.2s ease;
-        }
-        .action-link:hover {
-            background: #e0e8f0;
-            color: #3a5c7d;
-        }
-
-        @media (max-width: 480px) {
-            .project-card {
-                flex-direction: column;
-                gap: 16px;
-            }
-            .project-image {
-                width: 100%;
-                height: 180px;
-                aspect-ratio: auto;
-            }
-            .page-header h1 {
-                font-size: 1.6rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects · Keegan Whitacre</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="description" content="Research projects by Keegan Whitacre on early life adversity, interoception, emotion, and mental health.">
+  <style>
+    :root { --blue:#5b84b1; --blue-dark:#4a6d91; --ink:#333; --muted:#666; --faint:#888; --rule:#e8e8e8; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:#fff; color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+    .page { max-width:760px; margin:0 auto; padding:40px 20px 80px; }
+    a { color:var(--blue-dark); }
+    .back-link { display:inline-block; margin-bottom:34px; color:var(--blue); text-decoration:none; font-size:.95rem; }
+    .back-link:hover, .entry-links a:hover { text-decoration:underline; }
+    header { margin-bottom:52px; }
+    h1 { margin:0 0 10px; font-size:2rem; line-height:1.15; }
+    .intro { max-width:610px; margin:0; color:var(--muted); font-size:1rem; line-height:1.6; }
+    section { margin-top:48px; }
+    h2 { margin:0 0 2px; padding-bottom:9px; border-bottom:1px solid var(--rule); color:#777; font-size:.76rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; }
+    .entry { padding:25px 0 27px; border-bottom:1px solid var(--rule); }
+    .entry:last-child { border-bottom:0; }
+    .meta { margin:0 0 7px; color:var(--blue-dark); font-size:.77rem; font-weight:600; letter-spacing:.055em; text-transform:uppercase; }
+    h3 { margin:0 0 7px; color:#222; font-size:1.12rem; line-height:1.38; }
+    .authors { margin:0 0 10px; color:var(--muted); font-size:.9rem; }
+    .description { margin:0; color:#444; font-size:.95rem; line-height:1.62; }
+    .entry-links { display:flex; flex-wrap:wrap; gap:18px; margin-top:12px; }
+    .entry-links a { color:var(--blue-dark); font-size:.9rem; font-weight:500; text-decoration:none; }
+    .lead-entry { padding:30px 0 32px; border-bottom:1px solid var(--rule); display:grid; grid-template-columns:54px 1fr; gap:18px; }
+    .lead-number { color:#c7d5e3; font-size:2.8rem; font-weight:700; line-height:1; letter-spacing:-.05em; }
+    .feature { display:grid; grid-template-columns:180px 1fr; gap:28px; align-items:center; padding:30px 0; border-bottom:1px solid var(--rule); }
+    .feature-visual { width:180px; height:150px; margin:0; overflow:hidden; background:#fafafa; }
+    .feature-visual img { width:100%; height:100%; object-fit:cover; }
+    .current-pair { display:grid; grid-template-columns:1fr 1fr; gap:34px; padding-top:28px; }
+    .current-pair .entry { padding:0; border:0; }
+    .archive-entry { display:grid; grid-template-columns:106px 1fr; gap:24px; }
+    .archive-thumb { width:106px; height:82px; margin:2px 0 0; overflow:hidden; background:#fafafa; }
+    .archive-thumb img { width:100%; height:100%; object-fit:cover; }
+    @media (max-width:600px) {
+      .page{padding:36px 24px 64px} h1{font-size:1.7rem} header{margin-bottom:42px} section{margin-top:40px}
+      .feature { grid-template-columns:120px 1fr; gap:18px; align-items:start; }
+      .feature-visual { width:120px; height:110px; }
+      .current-pair { grid-template-columns:1fr; gap:28px; }
+      .archive-entry { grid-template-columns:82px 1fr; gap:16px; }
+      .archive-thumb { width:82px; height:68px; }
+    }
+    @media (max-width:420px) {
+      .lead-entry { grid-template-columns:38px 1fr; gap:12px; }
+      .lead-number { font-size:2rem; }
+      .feature, .archive-entry { grid-template-columns:1fr; }
+      .feature-visual { width:100%; height:155px; }
+      .archive-thumb { display:none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="page">
-        <a href="/" class="back-link">← Home</a>
-        <div class="page-header">
-            <h1>Projects</h1>
-            <p>Research on how social and material conditions shape psychological processes involved in mental health.</p>
+  <main class="page">
+    <a href="/" class="back-link">← Home</a>
+    <header>
+      <h1>Projects</h1>
+      <p class="intro">My work examines how early adversity and social conditions shape bodily experience, emotion, and mental health across the lifespan.</p>
+    </header>
+
+    <section>
+      <h2>Current work</h2>
+      <article class="lead-entry">
+        <div class="lead-number" aria-hidden="true">01</div>
+        <div>
+          <p class="meta">Lead-author study · Preregistration in preparation</p>
+          <h3>Interoceptive Pathways Linking Childhood Maltreatment to Adult Affective, Somatosensory, and Sleep Symptoms</h3>
+          <p class="authors"><strong>Keegan Whitacre</strong></p>
+          <p class="description">I am testing whether distress and confusion about bodily sensations help explain associations between childhood maltreatment and adult depression, anxiety, somatic symptoms, and sleep disturbance. The preregistered analysis uses parallel mediation models, with exploratory analyses of socioeconomic context and daily somatic–affective coupling.</p>
         </div>
+      </article>
 
-        <!-- 2026 -->
-        <div class="year-group">
-            <h2 class="year-label">2026</h2>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/recalibrates.png" alt="Threat Recalibration">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">First-Author Research Project · Preregistration in Preparation</p>
-                    <p class="project-title">Early Life Maltreatment Recalibrates Prediction Error Towards Threat</p>
-                    <p class="project-authors"><strong>Whitacre, K.</strong></p>
-                    <div class="tag-list">
-                        <span class="tag">Early Life Adversity</span>
-                        <span class="tag">Interoception</span>
-                        <span class="tag">Prediction Error</span>
-                         <span class="tag">Psychopathology</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                               This project examines how early life maltreatment may shape the way people perceive and interpret bodily experiences, and how these processes relate to mental health. I test whether distress and confusion surrounding bodily sensations help explain associations between early life maltreatment and symptoms of depression, anxiety, and somatization. Exploratory analyses examine socioeconomic conditions and daily experiences using ecological momentary assessment. The broader aim is to understand how early adversity may shape the processes through which people learn about and respond to internal signals, creating patterns of experience relevant to psychopathology.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/mechanisms.png" alt="UF Health Invited Talk">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Invited Talk (CME) · UF Health Palliative Care</p>
-                    <p class="project-title">Mechanisms of Dignity Therapy</p>
-                    <p class="project-authors"><strong>Whitacre, K.</strong></p>
-                    <div class="tag-list">
-                        <span class="tag">Palliative Care</span>
-                        <span class="tag">Narrative Medicine</span>
-                        <span class="tag">Clinical Translation</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                Delivered a CME Accredited Lunch and Learn presentation for palliative care providers at UF Health discussing the mechanisms behind Dignity Therapy. The talk highlighted our <a href="https://doi.org/10.1177/10966218251399600" target="_blank" style="color: #5b84b1; text-decoration: underline;">recently published paper</a> and ongoing research from the Life Story Lab regarding how narrative richness and empathy drive therapeutic impact.
-                                <div>
-                                    <a href="/files/Mechanisms.pptx" class="action-link" target="_blank">↓ Download Slides</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/handbook.png" alt="Handbook of Emotion Development">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Chapter · Handbook of Emotion Development</p>
-                    <p class="project-title">The Intersection of Language and Emotion Across Early Development</p>
-                    <p class="project-authors">Lindquist, K., <strong>Whitacre, K.</strong>, Shablack, H.</p>
-                    <div class="tag-list">
-                        <span class="tag">Language &amp; Emotion</span>
-                        <span class="tag">Emotion Concepts</span>
-                        <span class="tag">Developmental Psychology</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                This chapter reviews how linguistic environments shape the way children learn to categorize and understand emotions. We synthesize research from infancy through adolescence to show that learning emotion words helps children transition from broad 'good vs. bad' feelings to specific categories like anger, sadness, or fear. My contribution involved integrating recent empirical findings to illustrate how acquiring these emotion concepts actively changes how children interpret both social cues and their own internal states.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/sas.png" alt="Society for Affective Science poster">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Poster · Society for Affective Science</p>
-                    <p class="project-title">Childhood Maltreatment Predicts Perceived But Not Objective Sleep Disruption</p>
-                    <p class="project-authors"><strong>Whitacre, K.</strong>, Feldman, M., Bonar, A., Ma, R., Lindquist, K.</p>
-                    <div class="tag-list">
-                        <span class="tag">Early Life Stress</span>
-                        <span class="tag">Interoception</span>
-                        <span class="tag">Subjective–Objective Discrepancy</span>
-                        <span class="tag">Constructed Emotion</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                This project originally tested whether beliefs about emotion malleability (PBEM) moderate the link between childhood maltreatment and adult sleep — they did not, across all PSQI components and Fitbit outcomes. The more interesting result emerged from the data itself: maltreatment strongly predicted self-reported sleep disturbances (r = .42, p &lt; .001, N = 131) but showed no relationship with objectively measured sleep via Fitbit actigraphy (r = −.06, ns, N = 97). We formalized this dissociation as a subjective-objective discrepancy score and found that greater maltreatment history predicts a larger perception gap. Exploratory analyses suggest interoceptive emotional awareness explains part of this gap.
-                                <div>
-                                    <a href="/files/sas-poster.pdf" class="action-link" target="_blank">↓ Download Poster</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/lpa.png" alt="Latent Profile Analysis manuscript">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">In Press · Applied Cognitive Psychology</p>
-                    <p class="project-title">Latent Profiles of Life Stress and Resilience</p>
-                    <p class="project-authors">Cogdill-Richardson, K., <strong>Whitacre, K.</strong>, Bluck, S.</p>
-                    <div class="tag-list">
-                        <span class="tag">Narrative Meaning-Making</span>
-                        <span class="tag">Resilience</span>
-                        <span class="tag">Latent Profile Analysis</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                This study applies Latent Profile Analysis (LPA) to identify distinct patterns of life stress exposure and meaning-making within a Dignity Therapy sample. Using person-centered modeling in R and Mplus, we examined how profiles of early life stress, adult stress, religion, and social support relate to psychological outcomes. The study advances beyond cumulative stress indices by identifying heterogeneity in stress exposure and narrative integration.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <article class="feature">
+        <figure class="feature-visual"><img src="/images/emaforge.png" alt="EMA Forge logo"></figure>
+        <div>
+          <p class="meta">Research software · 2026–present</p>
+          <h3>EMA Forge</h3>
+          <p class="authors">Designed and developed by <strong>Keegan Whitacre</strong></p>
+          <p class="description">An open-source, browser-based platform for building and deploying ecological momentary assessment studies. Researchers can create mobile surveys, schedule repeated prompts, collect study data, and add camera-based physiological and behavioral measures.</p>
+          <div class="entry-links">
+            <a href="https://emaforge.keeganwhitacre.com" target="_blank" rel="noopener">Visit EMA Forge →</a>
+            <a href="https://github.com/keeganwhitacre/emaforge" target="_blank" rel="noopener">Source code →</a>
+          </div>
         </div>
+      </article>
 
-        <!-- 2025 -->
-        <div class="year-group">
-            <h2 class="year-label">2025</h2>
+      <div class="current-pair">
+        <article class="entry">
+          <p class="meta">Ohio State · 2026–present</p>
+          <h3>Respiratory Interoception Study</h3>
+          <p class="description">I contribute to the development and piloting of an experimental study of respiratory interoception, including construction of the apparatus, laboratory testing, and participant-facing materials.</p>
+        </article>
+        <article class="entry">
+          <p class="meta">Ohio State · 2026–present</p>
+          <h3>The Thriving Initiative</h3>
+          <p class="authors">With Kristen Lindquist, Kentaro Fujita, and Jennifer Cheavens</p>
+          <p class="description">I help build the infrastructure for an initiative translating psychological science into useful community resources about connection, purpose, and well-being.</p>
+        </article>
+      </div>
+    </section>
 
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/dignity-therapy.png" alt="Invited Talk">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Invited Talk · Clinical and Health Psychology Seminar, UF</p>
-                    <p class="project-title">Dignity Therapy and Narrative Mechanisms</p>
-                    <p class="project-authors"><strong>Whitacre, K.</strong></p>
-                    <div class="tag-list">
-                        <span class="tag">Narrative Psychology</span>
-                        <span class="tag">Dignity Therapy</span>
-                        <span class="tag">Clinical Translation</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                Delivered a 1-hour invited seminar synthesizing theoretical foundations, clinical applications, and ongoing research related to Dignity Therapy. The presentation integrated developmental, narrative, and affective perspectives on how individuals construct meaning around serious illness and life stress. I also discussed emerging quantitative findings and future directions examining narrative integration as a mechanism linking adversity to psychological outcomes.
-                                <div>
-                                    <a href="/files/dt-slides.pdf" class="action-link" target="_blank">↓ Download Slides</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/stress-meaning.png" alt="Poster presentation">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Poster · Institute for Learning in Retirement</p>
-                    <p class="project-title">Dignity Therapy for Older Adults: Revisiting Early Life Stressors</p>
-                    <p class="project-authors"><strong>Whitacre, K.</strong>, Cogdill-Richardson, K., Bluck, S.</p>
-                    <div class="tag-list">
-                        <span class="tag">Early Life Stress</span>
-                        <span class="tag">Lifespan Development</span>
-                        <span class="tag">Content Analysis</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                This follow up project examined how individuals with varying levels of early life adversity differed in the types of stressors they discussed during Dignity Therapy and how they constructed meaning around those events. Rather than focusing solely on exposure, we analyzed patterns in the content of narratives, including whether stressors were self initiated or emerged in response to provider prompts. Using structured content coding and quantitative comparisons, we investigated how cumulative early adversity related to narrative emphasis.
-                                <div>
-                                    <a href="/files/ilr-poster.pdf" class="action-link" target="_blank">↓ Download Poster</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section>
+      <h2>Publications and presentations</h2>
+      <article class="entry archive-entry">
+        <figure class="archive-thumb"><img src="/images/sas.png" alt="Sleep discrepancy result"></figure>
+        <div><p class="meta">Poster · Society for Affective Science · 2026</p>
+          <h3>Examining Emotion Malleability Beliefs as a Moderator on Associations Between Early Life Maltreatment and Poor Sleep</h3>
+          <p class="authors"><strong>Whitacre, K.</strong>, Feldman, M., Bonar, A., Ma, R., &amp; Lindquist, K.</p>
+          <p class="description">We examined childhood maltreatment alongside self-reported and Fitbit-derived sleep. Maltreatment was associated with perceived sleep disturbance but not objective sleep disruption.</p>
+          <div class="entry-links"><a href="/files/sas-poster.pdf" target="_blank">View poster ↓</a></div>
         </div>
+      </article>
 
-        <!-- 2024 -->
-        <div class="year-group">
-            <h2 class="year-label">2024</h2>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/provider-prompted.png" alt="UF Cancer Institute poster">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Poster · UF Cancer Institute Research Showcase</p>
-                    <p class="project-title">Dignity Therapy for Older Cancer Patients: The Role of Early Life Stressors</p>
-                    <p class="project-authors"><strong>Whitacre, K.</strong>, Cogdill-Richardson, K., Bluck, S.</p>
-                    <div class="tag-list">
-                        <span class="tag">Early Life Stress</span>
-                        <span class="tag">Palliative Care</span>
-                        <span class="tag">Content Analysis</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                Building on prior coding work, this project examined how early life adversity is incorporated into narrative meaning in terminally ill cancer patients undergoing Dignity Therapy. Using a dataset of over 200 participants, I independently double coded transcripts and conducted quantitative analyses in R. We investigated whether the presence and severity of childhood stressors predicted differences in how individuals construct and interpret their life stories.
-                                <div>
-                                    <a href="/files/cc-poster.pdf" class="action-link" target="_blank">↓ Download Poster</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/life-stressors.png" alt="Life Story Lab">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Project · Life Story Lab</p>
-                    <p class="project-title">Stressful Life Events in Dignity Therapy</p>
-                    <div class="tag-list">
-                        <span class="tag">Qualitative Coding</span>
-                        <span class="tag">Interrater Reliability</span>
-                        <span class="tag">Life Events</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                I qualitatively analyzed over 140 Dignity Therapy transcripts to identify and classify stressful life events described by older adults with cancer. We developed a modified Social Readjustment Rating Scale to support systematic biographical coding, and I achieved strong interrater reliability (κ = .81). This project examined how individuals reference and contextualize life stressors within structured narrative interventions.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <article class="entry archive-entry">
+        <figure class="archive-thumb"><img src="/images/handbook.png" alt="Handbook of Emotion Development"></figure>
+        <div><p class="meta">Book chapter · Under review</p>
+          <h3>The Intersection of Language and Emotion Across Early Development</h3>
+          <p class="authors">Lindquist, K. A., <strong>Whitacre, K.</strong>, &amp; Shablack, H.</p>
+          <p class="description">A review of how language and emotion develop together from infancy through adolescence. I contributed literature review, conceptual development, and original writing on recent empirical work.</p>
         </div>
+      </article>
 
-        <!-- 2023 -->
-        <div class="year-group">
-            <h2 class="year-label">2023</h2>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/cdmlab.png" alt="Cognition and Decision Modeling Lab">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Project · Cognition and Decision Modeling Lab</p>
-                    <p class="project-title">Eye Tracking Decision Making</p>
-                    <div class="tag-list">
-                        <span class="tag">Decision Making</span>
-                        <span class="tag">Eye Tracking</span>
-                        <span class="tag">Behavioral Paradigms</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                This project examined decision making and reward processes using behavioral paradigms and eye tracking methodology. I assisted in participant coordination, experimental administration, and quantitative analysis in R. The study investigated how multiple weighted choices alter cognitive processing and choice behavior.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <article class="entry archive-entry">
+        <figure class="archive-thumb"><img src="/images/lpa.png" alt="Latent profile analysis"></figure>
+        <div><p class="meta">Applied Cognitive Psychology · In press</p>
+          <h3>Shaping the Final Story for Family: Profiles of Resilience</h3>
+          <p class="authors">Cogdill-Richardson, K., <strong>Whitacre, K.</strong>, &amp; Bluck, S.</p>
+          <p class="description">Using Dignity Therapy narratives from more than 200 participants, we identified profiles defined by life stress, meaning-making, religion, and social support. I led the statistical analyses and contributed to the manuscript.</p>
         </div>
+      </article>
 
-        <!-- SOFTWARE & TOOLS -->
-        <div class="year-group">
-            <h2 class="year-label">Software &amp; Tools</h2>
-
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="/images/emaforge.png" alt="EMA Forge">
-                </div>
-                <div class="project-text">
-                    <p class="project-venue">Software Framework · In Development</p>
-                    <p class="project-title">EMA Forge</p>
-                    <p class="project-authors">Developed by <strong>Keegan Whitacre</strong></p>
-                    <div class="tag-list">
-                        <span class="tag">Interoception</span>
-                        <span class="tag">EMA</span>
-                        <span class="tag">Web-Based PPG</span>
-                        <span class="tag">Open Source</span>
-                    </div>
-                    <button class="toggle-btn" onclick="toggleAbstract(this)">+ Show description</button>
-                    <div class="project-abstract">
-                        <div class="project-abstract-inner">
-                            <div class="project-abstract-content">
-                                EMA Forge is an open-source framework for building ecological momentary assessment protocols that connect real-time self-report with behavioral and physiological measurement. The platform supports web-based PPG and an ecological Phase Adjustment Task, enabling researchers to study psychological and physiological processes as they unfold in everyday life. I developed the framework to make intensive longitudinal and psychophysiological research more accessible, flexible, and reproducible.
-                                <br><br>
-                                <strong>Status:</strong> Internal testing phase. Documentation and layout preview available below.
-                                <div>
-                                    <a href="https://emaforge.keeganwhitacre.com/readme.html" class="action-link" target="_blank">→ View Documentation Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <article class="entry archive-entry">
+        <figure class="archive-thumb"><img src="/images/mechanisms.png" alt="Dignity Therapy mechanisms diagram"></figure>
+        <div><p class="meta">Invited talk · UF Health Palliative Care · 2026</p>
+          <h3>Mechanisms of Dignity Therapy</h3>
+          <p class="authors"><strong>Whitacre, K.</strong></p>
+          <p class="description">An invited presentation for palliative-care providers on how narrative richness, empathy, and meaning-making may contribute to the effects of Dignity Therapy.</p>
+          <div class="entry-links"><a href="/files/dt-slides.pdf" target="_blank">View slides ↓</a></div>
         </div>
+      </article>
 
-    </div>
+      <article class="entry archive-entry">
+        <figure class="archive-thumb"><img src="/images/stress-meaning.png" alt="Early life stress and meaning-making result"></figure>
+        <div><p class="meta">Poster presentations · 2025</p>
+          <h3>Dignity Therapy for Older Adults: Revisiting Early Life Stressors</h3>
+          <p class="authors"><strong>Whitacre, K.</strong>, Cogdill-Richardson, K., &amp; Bluck, S.</p>
+          <p class="description">We examined how early-life adversity appeared in the life stories of older adults with cancer and how participants made meaning from those experiences.</p>
+          <div class="entry-links"><a href="/files/ilr-poster.pdf" target="_blank">View poster ↓</a></div>
+        </div>
+      </article>
 
-    <script>
-        function toggleAbstract(btn) {
-            const abstract = btn.nextElementSibling;
-            const isNowOpen = abstract.classList.toggle('open');
-            btn.textContent = isNowOpen ? '− Hide description' : '+ Show description';
-        }
-    </script>
+      <article class="entry archive-entry">
+        <figure class="archive-thumb"><img src="/images/provider-prompted.png" alt="Early life stressor analysis"></figure>
+        <div><p class="meta">Poster · UF Cancer Center Research Showcase · 2025</p>
+          <h3>Dignity Therapy for Older Cancer Patients: The Role of Early Life Stressors</h3>
+          <p class="authors"><strong>Whitacre, K.</strong>, Cogdill-Richardson, K., &amp; Bluck, S.</p>
+          <p class="description">Using a dataset of more than 200 participants, we studied whether childhood stress was associated with differences in how people constructed and interpreted their life stories near the end of life.</p>
+          <div class="entry-links"><a href="/files/cc-poster.pdf" target="_blank">View poster ↓</a></div>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Earlier research</h2>
+      <article class="entry">
+        <p class="meta">Life Story Lab · 2024</p>
+        <h3>Stressful Life Events in Dignity Therapy</h3>
+        <p class="description">I helped develop a coding system for stressful life events, double-coded more than 140 Dignity Therapy transcripts, and achieved interrater reliability of κ = .81.</p>
+      </article>
+      <article class="entry">
+        <p class="meta">Cognition and Decision Modeling Lab · 2023–2024</p>
+        <h3>Timed Decision-Making Study</h3>
+        <p class="description">I conducted participant sessions for a behavioral decision-making study and assisted with eye-tracking procedures during data collection.</p>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
